@@ -27,8 +27,9 @@ app.get('/test', (req, res) => res.send('I am working'));
 app.get('/api/v1/tm', (req, res) => {
     console.log('entering TM api');
     request
-    .get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&city=seattler&radius=50&unit=miles&startDateTime=2018-04-27T18:50:00Z&endDateTime=2018-04-30T18:51:00Z')
-    .then(results => res.send(JSON.parse(results)))
+    .get('https://app.ticketmaster.com/discovery/v2/events.JSON?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&startDateTime=2018-05-02T22:25:00Z&endDateTime=2018-05-30T22:25:00Z&city=Seattle')
+    // .then(results => res.send(JSON.parse(results)))
+    .then(results => res.send(results.body))
     .catch(console.error);
    });
 
