@@ -1,0 +1,27 @@
+{
+  "name": "the-spot-server",
+  "version": "1.0.0",
+  "description": "The Spot:  Server Side Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Spot/the-spot-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Spot/the-spot-server/issues"
+  },
+  "homepage": "https://github.com/The-Spot/the-spot-server#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "pg": "^7.4.1",
+    "superagent": "^3.8.2"
+  }
+}
