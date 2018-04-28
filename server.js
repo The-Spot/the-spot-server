@@ -29,7 +29,7 @@ app.get('/api/v1/tm', (req, res) => {
     request
     .get('https://app.ticketmaster.com/discovery/v2/events.JSON?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&startDateTime=2018-05-02T22:25:00Z&endDateTime=2018-05-30T22:25:00Z&city=Seattle')
     .then(results => res.send(JSON.stringify(results.body._embedded.events[0].name)))
-
+    // DANGER might have to handle an empty array
 
     // obejct.[events].map(name_;)
     .catch(console.error);
