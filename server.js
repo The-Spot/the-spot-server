@@ -11,7 +11,7 @@ const app = express();
 const apiURL = 'https://app.ticketmaster.com/discovery/v2/events.'
 
 // const app=express();
-const CLIENT_URL = process.env.CLIENT_URL; 
+const CLIENT_URL = process.env.CLIENT_URL;
 
 // const client = new pg.Client(process.env.DATABASE_
 // URL);
@@ -26,15 +26,20 @@ app.use(express.static('./public'));
 app.get('/test', (req, res) => res.send('I am working'));
 
 app.get('/api/v1/tm', (req, res) => {
-    console.log('entering TM api');
-    request
+  console.log('entering TM api');
+  request
     .get('https://app.ticketmaster.com/discovery/v2/events.JSON?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&startDateTime=2018-05-02T22:25:00Z&endDateTime=2018-05-30T22:25:00Z&city=Seattle')
-    .then(results => res.send(JSON.stringify(results.body._embedded.events[0].name)))
-    // DANGER might have to handle an empty array
+    .then(results => results.body._embedded.events)
+    .then(events => {
+      let arrayOfEvents = [];
+      arrayOfEvents.push(events.map(event => event.name));
+      res.send(arrayOfEvents)
+    })
 
-    // obejct.[events].map(name_;)
+    // DANGER might have to handle an empty array
+   
     .catch(console.error);
-   });
+});
 
 
 // app.get('api/discovery/v2/events')
