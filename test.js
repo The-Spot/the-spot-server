@@ -15,12 +15,10 @@ app.use(cors({origin: '*'}));
 app.use(express.urlencoded({extended:true}));
 
 
-app.get('/api/v1/key', (req, res) => {
-  console.log('server response')
-    // client.query(`SELECT book_id, title, author, image_url, isbn FROM key;`)
-    .then(res.send(console.log('message 2')))
-    .catch(console.error);
+app.post('/', (req, res) => {
+  res.send(console.log('got it '+ req.body.budget + req.body.location + req.body.datetime));
 });
+
 
 console.log(PORT);
 
