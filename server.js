@@ -25,15 +25,23 @@ app.use(express.static('./public'));
 
 app.get('/test', (req, res) => res.send('I am working'));
 
-app.get('/api/v1/tm', (req, res) => {
+app.get('/api/v1/tm/*', (req, res) => {
   console.log('entering TM api');
-  let location = req.body.location;
-  let startDate = req.body.date + 'T00:00:00Z';
-  let endDate = req.body.date + 'T00:00:00Z';
-  let apiUrl = apiURLPrefix + '&' + startDate +'&' + endDate + '&' +'city=' + location;
+  let location = req.query.location;
+  let startDate = req.query.date + 'T00:00:00Z';
+  let endDate = req.query.date + 'T00:00:00Z';
+  let budget = req.query.budget;
+  //   let location = req.body.location;
+  //   let startDate = req.body.date + 'T00:00:00Z';
+  //   let endDate = req.body.date + 'T00:00:00Z';
+  //   let apiUrl = apiURLPrefix + '&' + startDate +'&' + endDate + '&' +'city=' + location;
+  console.log('location', location);
+  console.log('startDate', startDate);
+  console.log('endDate', endDate);
+  console.log('budget', budget);
   request
-    .get(apiUrl)
-    // .get('https://app.ticketmaster.com/discovery/v2/events.JSON?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&startDateTime=2018-05-02T22:25:00Z&endDateTime=2018-05-30T22:25:00Z&city=Seattle')
+    // .get(apiUrl)
+    .get('https://app.ticketmaster.com/discovery/v2/events.JSON?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&startDateTime=2018-05-02T22:25:00Z&endDateTime=2018-05-30T22:25:00Z&city=Seattle')
     .then(results => results.body._embedded.events)
     .then(events => {
     //   let arrayOfEvents = [];
@@ -50,7 +58,13 @@ app.get('/api/v1/tm', (req, res) => {
 
 function mapResults (event) {
   let eventObject = {
-    eventName:event.name
+    eventName:event.name,
+    tmUrl:event.url,
+    imageUrl:event.images[0].url,
+    startDate:event.dates.start.localDate,
+    priceMin:event.priceRanges[0].min,
+    priceMax:event.priceRanges[0].max,
+    venue:event._embedded.venues[0].name
   }
   return eventObject;
 }
