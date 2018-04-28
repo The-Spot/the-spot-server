@@ -31,20 +31,24 @@ app.get('/api/v1/tm', (req, res) => {
     .get('https://app.ticketmaster.com/discovery/v2/events.JSON?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&startDateTime=2018-05-02T22:25:00Z&endDateTime=2018-05-30T22:25:00Z&city=Seattle')
     .then(results => results.body._embedded.events)
     .then(events => {
-      let arrayOfEvents = [];
-      arrayOfEvents.push(events.map(event => event.name));
+    //   let arrayOfEvents = [];
+      //   arrayOfEvents.push(events.map(event => event.name));
+    //   arrayOfEvents.push(events.map(event => mapResults(event)));
+      let arrayOfEvents = events.map(event => mapResults(event));
       res.send(arrayOfEvents)
     })
 
     // DANGER might have to handle an empty array
-   
+
     .catch(console.error);
 });
 
-
-// app.get('api/discovery/v2/events')
-
-
+function mapResults (event) {
+  let eventObject = {
+    eventName:event.name
+  }
+  return eventObject;
+}
 
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
 app.listen(PORT, () => console.log(`listen on port: ${PORT}`));
