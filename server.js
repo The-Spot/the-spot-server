@@ -25,21 +25,28 @@ app.use(express.static('./public'));
 
 app.get('/test', (req, res) => res.send('I am working'));
 
-app.get('/api/v1/tm/*', (req, res) => {
+app.get('/api/v1/tm*', (req, res) => {
   console.log('entering TM api');
-  let location = req.query.location;
-  let startDate = req.query.date + 'T00:00:00Z';
-  let endDate = req.query.date + 'T00:00:00Z';
-  let budget = req.query.budget;
+  // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
+  //   let location = req.query.location;
+  //   let startDate = req.query.date + 'T00:00:00Z';
+  //   let endDate = req.query.date + 'T00:00:00Z';
+  //   let budget = req.query.budget;
+  // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
+  // UNCOMMENT THIS FOR OBJECT PARAMETERS
   //   let location = req.body.location;
   //   let startDate = req.body.date + 'T00:00:00Z';
   //   let endDate = req.body.date + 'T00:00:00Z';
+  // UNCOMMENT THIS FOR OBJECT PARAMETERS
+  // UNCOMMENT THIS FOR PARAMETER SEARCH
+  //   console.log('location', location);
+  //   console.log('startDate', startDate);
+  //   console.log('endDate', endDate);
+  //   console.log('budget', budget);
   //   let apiUrl = apiURLPrefix + '&' + startDate +'&' + endDate + '&' +'city=' + location;
-  console.log('location', location);
-  console.log('startDate', startDate);
-  console.log('endDate', endDate);
-  console.log('budget', budget);
+  // UNCOMMENT THIS FOR PARAMETER SEARCH
   request
+  // UNCOMMENT THIS FOR PARAMETER SEARCH
     // .get(apiUrl)
     .get('https://app.ticketmaster.com/discovery/v2/events.JSON?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&startDateTime=2018-05-02T22:25:00Z&endDateTime=2018-05-30T22:25:00Z&city=Seattle')
     .then(results => results.body._embedded.events)
