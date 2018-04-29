@@ -5,7 +5,7 @@ var app = app || {};
 const ENV = {};
 
 ENV.isProduction = window.location.protocol === 'https:';
-ENV.productionApiUrl = 'https://tr-ab-bookapp.herokuapp.com';
+ENV.productionApiUrl = 'https://the-spot-sea.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
@@ -28,10 +28,17 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
 
   SearchObj.create = function(key) {
+
     $.get(`${ENV.apiUrl}/viewData`, {
       // budget: key.budget,
       // location: key.location,
       // datetime: key.datetime
+
+    $.get(`${ENV.apiUrl}/api/v1/tm`, {
+      budget: key.budget,
+      location: key.location,
+      datetime: key.datetime
+
     })
       .then(console.log('searchobj create'))
       .catch(err => console.error(err));
