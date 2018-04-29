@@ -19,6 +19,12 @@
   box-shadow: 0 0 20px 14px white;
 }
 
+#result-view{
+  font-size: 1em;
+}
+#result-view li{
+  list-style-type: none;
+}
 
 .form {
   width: 40%;

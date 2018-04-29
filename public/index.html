@@ -16,11 +16,13 @@
 
   <script id="result-view-template" type="text/x-handlebars-template">
     <div>
-      <img src="{{image_url}}">
+      <img src="{{imageUrl}}">
         <ul>
-          <li><h1><a href="books/{{book_id}}">{{title}}</a></h1></li>
-          <li><h2>{{author}}</h2></li>
-          <li><p>{{description}}</p></li>
+          <li><p><a href={{tmUrl}}>{{eventName}}</a></p></li>
+          <li><p>{{startDate}}</p></li>
+          <li><p>{{priceMin}}</p></li>
+          <li><p>{{priceMax}}</p></li>
+          <li><p>{{venue}}</p></li>
         </ul>
     </div>
   </script>
@@ -52,32 +54,20 @@
     <section class="form container">
       <fieldset>
           <form id="landing-form">
-            <input id="budget" type="number" placeholder="Budget" required>
-            <input id="location" type="text" placeholder="Location" required>
-            <input id="date-time" type="date" required>
+            <input id="budget" type="number" placeholder="Budget" >
+            <input id="location" type="text" placeholder="Location" >
+            <input id="date-time" type="date" >
             <button class="show-results"type="submit">Submit</button>
           </form>
         </fieldset>
       </section>
 
 
-    <section class="results container">
-      <img src='http://via.placeholder.com/300x600'>
-      <img src='http://via.placeholder.com/300x600'>
-      <img src='http://via.placeholder.com/300x600'>
-      <img src='http://via.placeholder.com/300x600'>
-
-
       <section id="result-view" class="result-view container">
-        <ul id="view-results"></ul>
+        <!-- <ul id="view-results"></ul> -->
       </section>
 
-
-    </section>
-
-
-
-  <footer class="footer">;dsljfia;owejsmoricjaewopisnvhaerw</footer>
+  <footer class="footer">footer</footer>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
