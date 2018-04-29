@@ -15,16 +15,18 @@
 
 
   <script id="result-view-template" type="text/x-handlebars-template">
-    <div>
+
+    <div class="event-result">
       <img src="{{imageUrl}}">
         <ul>
           <li><p><a href={{tmUrl}}>{{eventName}}</a></p></li>
-          <li><p>{{startDate}}</p></li>
-          <li><p>{{priceMin}}</p></li>
-          <li><p>{{priceMax}}</p></li>
-          <li><p>{{venue}}</p></li>
+          <li><p>Date: {{startDate}}</p></li>
+          <li><p>Price $: {{priceMin}}</p></li>
+          <!-- <li><p>{{priceMax}}</p></li> -->
+          <li><p>Venue: {{venue}}</p></li>
         </ul>
     </div>
+    
   </script>
 
 
@@ -63,8 +65,11 @@
       </section>
 
 
-      <section id="result-view" class="result-view container">
-        <!-- <ul id="view-results"></ul> -->
+      <section id="result-view" class="result-view container  flex-container">
+
+          <button class="left" onclick="plusDivs(-1)">&#10094;</button>
+         
+          <button class="right" onclick="plusDivs(+1)">&#10095;</button>
       </section>
 
   <footer class="footer">footer</footer>
