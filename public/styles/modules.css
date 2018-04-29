@@ -41,3 +41,29 @@ form * {
   margin-top: 5%;
   height: 50px;
 }
+
+
+
+
+.result-view {
+  width: 90%;
+  /* float: left; */
+  background-color: white;
+  opacity: .85;
+  margin-top: 0px;
+}
+
+.event-result {
+  border: 1px solid black;
+  /* float: left; */
+}
+
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+
