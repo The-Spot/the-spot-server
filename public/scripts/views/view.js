@@ -12,11 +12,11 @@ $('.enter').click('submit', (event) => {
 });
 
 
-$('.show-results').click('submit', (event) => {
-  event.preventDefault();
-  $('.container').hide();
-  $('.results').show();
-});
+// $('.show-results').click('submit', (event) => {
+//   event.preventDefault();
+//   $('.container').hide();
+//   $('.results').show();
+// });
 
 
 // $(document).scroll(function() {

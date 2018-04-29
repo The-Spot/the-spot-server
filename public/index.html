@@ -11,6 +11,24 @@
   <link rel="stylesheet" href="./styles/layout.css">
   <link rel="stylesheet" href="./styles/modules.css">
   <link rel="stylesheet" href="./styles/reset.css">
+
+
+
+  <script id="result-view-template" type="text/x-handlebars-template">
+    <div>
+      <img src="{{image_url}}">
+        <ul>
+          <li><h1><a href="books/{{book_id}}">{{title}}</a></h1></li>
+          <li><h2>{{author}}</h2></li>
+          <li><p>{{description}}</p></li>
+        </ul>
+    </div>
+  </script>
+
+
+
+
+
 </head>
 
 <body>
@@ -34,9 +52,9 @@
     <section class="form container">
       <fieldset>
           <form id="landing-form">
-            <input id="budget" type="text" placeholder="Budget">
-            <input id="location" type="text" placeholder="Location">
-            <input id="date-time" type="datetime" placeholder="Date and Time">
+            <input id="budget" type="number" placeholder="Budget" required>
+            <input id="location" type="text" placeholder="Location" required>
+            <input id="date-time" type="date" required>
             <button class="show-results"type="submit">Submit</button>
           </form>
         </fieldset>
@@ -48,6 +66,13 @@
       <img src='http://via.placeholder.com/300x600'>
       <img src='http://via.placeholder.com/300x600'>
       <img src='http://via.placeholder.com/300x600'>
+
+
+      <section id="result-view" class="result-view container">
+        <ul id="view-results"></ul>
+      </section>
+
+
     </section>
 
 
@@ -57,6 +82,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src='https://cdn.rawgit.com/visionmedia/page.js/master/page.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <!-- <script src="./scripts/controller/routes.js"></script> -->
     <script src="./scripts/views/view.js"></script>
     <script src="./scripts/models/model.js"></script>

@@ -16,11 +16,29 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   // function SearchObj
 
+  // SearchObj.create = function(key) {
+  //   $.post(`${ENV.apiUrl}/`, {
+  //     budget: key.budget,
+  //     location: key.location,
+  //     datetime: key.datetime
+  //   })
+  //     .then(console.log('searchobj create'))
+  //     .catch(err => console.error(err));
+  // };
+
+
   SearchObj.create = function(key) {
+
+    $.get(`${ENV.apiUrl}/viewData`, {
+      // budget: key.budget,
+      // location: key.location,
+      // datetime: key.datetime
+
     $.get(`${ENV.apiUrl}/api/v1/tm`, {
       budget: key.budget,
       location: key.location,
       datetime: key.datetime
+
     })
       .then(console.log('searchobj create'))
       .catch(err => console.error(err));
@@ -42,6 +60,9 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('.results').show();
 
   }
+
+
+  
 
   $('#landing-form').on('submit', SearchObj.submit);
 
