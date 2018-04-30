@@ -19,12 +19,6 @@
   box-shadow: 0 0 20px 14px white;
 }
 
-#result-view{
-  font-size: 1em;
-}
-#result-view li{
-  list-style-type: none;
-}
 
 .form {
   width: 40%;
@@ -46,24 +40,34 @@ form * {
 
 
 .result-view {
-  width: 90%;
-  /* float: left; */
   background-color: white;
   opacity: .85;
   margin-top: 0px;
+  font-size: 1em;
+  margin: auto;
+}
+
+#result-view {
+  display: flex;
+  width: 900px;
+  /* flex: auto; */
+  overflow: scroll;
+  justify-content: space-around;
 }
 
 .event-result {
   border: 1px solid black;
-  /* float: left; */
+  width: 400px;
+}
+
+#result-view li{
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
 }
 
 
-
-.flex-container {
-  display: flex;
-  justify-content: space-around;
-  margin: 0;
-}
 
 
