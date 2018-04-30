@@ -38,16 +38,29 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     //   location: key.location,
     //   datetime: key.datetime
 
-    // let arrEvent = []
-    $.get(`${ENV.apiUrl}/api/v1/tm`)
-      .then(data => {
-        let stuff = data
-        stuff.forEach(element => {
-          console.log(element)
-          $('#result-view').append(SearchObj.renderHandle(element))
-        })
-        $('#result-view').show();
+    $.get(`${ENV.apiUrl}/api/v1/tm`, {
+        budget: key.budget,
+        location: key.location,
+        datetime: key.datetime})
+    .then(data => {
+      let stuff = data
+      stuff.forEach(element => {
+        console.log(element)
+        $('#result-view').append(SearchObj.renderHandle(element))
       })
+      $('#result-view').show();
+    })
+
+    // let arrEvent = []
+    // $.get(`${ENV.apiUrl}/api/v1/tm`)
+    //   .then(data => {
+    //     let stuff = data
+    //     stuff.forEach(element => {
+    //       console.log(element)
+    //       $('#result-view').append(SearchObj.renderHandle(element))
+    //     })
+    //     $('#result-view').show();
+    //   })
       // .then(console.log(arrEvent))
 
       // .then(
@@ -67,7 +80,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       location : $('#location').val(),
       datetime : $('#date-time').val()
     };
-    console.log('key', key)
+    // console.log('key', key)
     SearchObj.create(key);
     $('#budget').val(''),
     $('#location').val(''),
