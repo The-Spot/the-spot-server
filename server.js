@@ -68,7 +68,10 @@ function filterResults (event) {
   console.log('price', event.priceRanges);
   if (event.priceRanges && event.priceRanges.length > 0 && event.classifications && event.classifications.length > 0)   {
     return (event.classifications[0].segment.name !== 'Sports' && event.priceRanges[0].min <= budgetPrice);
-  }}
+  } else {
+    return false;
+  }
+}
 
 function mapResults (event) {
   let eventObject = {
