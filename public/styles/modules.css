@@ -45,6 +45,7 @@ form * {
   margin-top: 0px;
   font-size: 1em;
   margin: auto;
+  display: flex;
 }
 
 #result-view {
