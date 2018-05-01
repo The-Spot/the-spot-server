@@ -77,6 +77,30 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   }
 
+
+
+
+  $(function() {
+
+    var container = $('#result-view');
+    var cycle = function() {
+      container.find('.event-result')
+        .hide()
+        .slice(0, 3)
+        .appendTo(container)
+        .show();
+    }
+
+    $('.right').click(function() {
+      cycle();
+    });
+    // $('.right, .left').click(function()
+    cycle();
+  });
+
+
+
+
   $('#landing-form').on('submit', SearchObj.submit);
 
   module.SearchObj = SearchObj;
