@@ -9,6 +9,7 @@ const express = require('express');
 const request = require('superagent');
 const app = express();
 const apiURLPrefix = process.env.API_URL_PREFIX;
+let minimumPrice = 0;
 
 // const app=express();
 const CLIENT_URL = process.env.CLIENT_URL;
@@ -27,6 +28,12 @@ app.get('/test', (req, res) => res.send('I am working'));
 
 app.get('/api/v1/tm*', (req, res) => {
   console.log('entering TM api');
+  // UNCOMMENT THIS FOR HARD CODED PARAMETERS
+  let location = 'Seattle';
+  let startDate = '2018-05-02' + 'T00:00:00Z';
+  let endDate = '2018-05-30' + 'T00:00:00Z';
+  minimumPrice = 80;
+  // UNCOMMENT THIS FOR HARD CODED PARAMETERS
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
   //   let location = req.query.location;
   //   let startDate = req.query.date + 'T00:00:00Z';
@@ -43,13 +50,14 @@ app.get('/api/v1/tm*', (req, res) => {
   // console.log('startDate', startDate);
   // console.log('endDate', endDate);
   // console.log('budget', budget);
-  //   let apiUrl = apiURLPrefix + '&' + startDate +'&' + endDate + '&' +'city=' + location;
+  let apiUrl = apiURLPrefix + '&' + startDate +'&' + endDate + '&' +'city=' + location;
   // UNCOMMENT THIS FOR PARAMETER SEARCH
   request
   // UNCOMMENT THIS FOR PARAMETER SEARCH
-    // .get(apiUrl)
-    .get('https://app.ticketmaster.com/discovery/v2/events.JSON?apikey=VWGcUhYXgeUlrI8mQ1Ly0TGpp8RTHrJe&startDateTime=2018-05-02T22:25:00Z&endDateTime=2018-05-30T22:25:00Z&city=Seattle')
+    .get(apiUrl)
+    
     .then(results => results.body._embedded.events)
+    .then(resultsBody => resultsBody.filter(filterResults))
     .then(events => {
     //   let arrayOfEvents = [];
       //   arrayOfEvents.push(events.map(event => event.name));
@@ -62,6 +70,11 @@ app.get('/api/v1/tm*', (req, res) => {
 
     .catch(console.error);
 });
+
+function filterResults (event) {
+  // console.log('min price', minimumPrice);
+  return (event.classifications[0].segment.name !== 'Sports' && event.priceRanges[0].min <= minimumPrice);
+}
 
 function mapResults (event) {
   let eventObject = {
