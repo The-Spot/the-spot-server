@@ -9,21 +9,15 @@ $('.enter').click('submit', (event) => {
   event.preventDefault();
   $('.container').hide();
   $('.form').show();
+  $('.results').show()
 });
 
 
-$('.show-results').click('submit', (event) => {
-  event.preventDefault();
-  $('.container').hide();
-  $('.results').show();
-});
 
 
-// $(document).scroll(function() {
-//   var y = $(this).scrollTop();
-//   if (y > 800) {
-//     $('.footer').fadeIn();
-//   } else {
-//     $('.footer').fadeOut();
-//   }
+// $('.show-results').click('submit', (event) => {
+//   event.preventDefault();
+//   $('.container').hide();
+//   $('.results').show();
 // });
+
