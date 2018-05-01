@@ -1,7 +1,5 @@
 'use strict';
 
-// const pg = require('pg');
-// const fs = require('fs');
 require('dotenv').config();
 const PORT = process.env.PORT;
 const cors = require('cors');
@@ -9,15 +7,9 @@ const express = require('express');
 const request = require('superagent');
 const app = express();
 const apiURLPrefix = process.env.API_URL_PREFIX;
-let minimumPrice = 0;
+let budgetPrice = 100;
 
-// const app=express();
 const CLIENT_URL = process.env.CLIENT_URL;
-
-// const client = new pg.Client(process.env.DATABASE_
-// URL);
-// client.connect();
-// client.on('error', err => console.error(err));
 
 app.use(cors());
 app.use(express.json());
@@ -31,14 +23,14 @@ app.get('/api/v1/tm*', (req, res) => {
   // UNCOMMENT THIS FOR HARD CODED PARAMETERS
   let location = 'Seattle';
   let startDate = '2018-05-02' + 'T00:00:00Z';
-  let endDate = '2018-05-30' + 'T00:00:00Z';
-  minimumPrice = 80;
+  let endDate = '2018-05-21' + 'T00:00:00Z';
+  budgetPrice = 200;
   // UNCOMMENT THIS FOR HARD CODED PARAMETERS
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
   //   let location = req.query.location;
   //   let startDate = req.query.date + 'T00:00:00Z';
   //   let endDate = req.query.date + 'T00:00:00Z';
-  //   let budget = req.query.budget;
+  //   let budgetPrice = req.query.budget;
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
   // UNCOMMENT THIS FOR OBJECT PARAMETERS
   //   let location = req.body.location;
@@ -46,16 +38,16 @@ app.get('/api/v1/tm*', (req, res) => {
   //   let endDate = req.body.date + 'T00:00:00Z';
   // UNCOMMENT THIS FOR OBJECT PARAMETERS
   // UNCOMMENT THIS FOR PARAMETER SEARCH
-  // console.log('location', location);
-  // console.log('startDate', startDate);
-  // console.log('endDate', endDate);
-  // console.log('budget', budget);
-  let apiUrl = apiURLPrefix + '&' + startDate +'&' + endDate + '&' +'city=' + location;
+  console.log('location', location);
+  console.log('startDate', startDate);
+  console.log('endDate', endDate);
+  console.log('budget', budgetPrice);
+  let apiUrl = apiURLPrefix + '&' + 'startDateTime=' + startDate + '&' + 'endDateTime=' + endDate + '&' + 'city=' + location;
   // UNCOMMENT THIS FOR PARAMETER SEARCH
   request
   // UNCOMMENT THIS FOR PARAMETER SEARCH
     .get(apiUrl)
-    
+
     .then(results => results.body._embedded.events)
     .then(resultsBody => resultsBody.filter(filterResults))
     .then(events => {
@@ -72,8 +64,8 @@ app.get('/api/v1/tm*', (req, res) => {
 });
 
 function filterResults (event) {
-  // console.log('min price', minimumPrice);
-  return (event.classifications[0].segment.name !== 'Sports' && event.priceRanges[0].min <= minimumPrice);
+  // console.log('min price', budgetPrice);
+  return (event.classifications[0].segment.name !== 'Sports' && event.priceRanges[0].min <= budgetPrice);
 }
 
 function mapResults (event) {
