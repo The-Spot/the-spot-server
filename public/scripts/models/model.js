@@ -15,16 +15,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   var SearchObj = {};
 
   // function SearchObj
-  // *** OLD FUNCTION, DON'T USE:
-  // SearchObj.create = function(key) {
-  //   $.post(`${ENV.apiUrl}/`, {
-  //     budget: key.budget,
-  //     location: key.location,
-  //     datetime: key.datetime
-  //   })
-  //     .then(console.log('searchobj create'))
-  //     .catch(err => console.error(err));
-  // };
+
   SearchObj.renderHandle = function (renderer) {
     let template = Handlebars.compile($('#result-view-template').text());
 
@@ -34,16 +25,16 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   SearchObj.create = function(key) {
 
-    // $.get(`${ENV.apiUrl}/viewData`, {
-    //   budget: key.budget,
-    //   location: key.location,
-    //   datetime: key.datetime
-
-    // let arrEvent = []
-    $.get(`${ENV.apiUrl}/api/v1/tm`)
+    $.get(`${ENV.apiUrl}/api/v1/tm`, {
+      budget: key.budget,
+      location: key.location,
+      startDate: key.startDate,
+      endDate: key.endDate})
+      .then(console.log(key))
       .then(data => {
+        console.log(data)
         let stuff = data
-        stuff.forEach(element => {
+        stuff[0].forEach(element => {
           console.log(element)
           $('#result-view').append(SearchObj.renderHandle(element))
           cycle();
@@ -51,14 +42,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
         // $('.result-view').show();
       })
-      // .then(console.log(arrEvent))
-
-      // .then(
-    // arrEvent.forEach(element => {
-    //   console.log(element)
-   
-
-      // }))
 
       .catch(err => console.error(err));
   };
@@ -68,17 +51,16 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     let key = {
       budget : $('#budget').val(),
       location : $('#location').val(),
-      datetime : $('#date-time').val()
+      startDate : $('#startDate').val(),
+      endDate : $('#endDate').val()
     };
-    console.log('key', key)
     SearchObj.create(key);
     $('#budget').val(''),
     $('#location').val(''),
-    $('#date-time').val('')
+    $('#startDate').val(''),
+    $('#endDate').val(''),
     $('.container').hide();
     $('.result-view').show();
-    
-
   }
 
 
@@ -99,8 +81,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       cycle(-1);
     });
   });
-
-
 
 
   $('#landing-form').on('submit', SearchObj.submit);

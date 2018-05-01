@@ -7,7 +7,7 @@ const express = require('express');
 const request = require('superagent');
 const app = express();
 const apiURLPrefix = process.env.API_URL_PREFIX;
-let budgetPrice = 100;
+let budgetPrice = 0;
 
 const CLIENT_URL = process.env.CLIENT_URL;
 
@@ -18,20 +18,21 @@ app.use(express.static('./public'));
 
 app.get('/test', (req, res) => res.send('I am working'));
 
-app.get('/api/v1/tm*', (req, res) => {
+app.get('/api/v1/tm', (req, res) => {
   console.log('entering TM api');
   // UNCOMMENT THIS FOR HARD CODED PARAMETERS
-  let location = 'Seattle';
-  let startDate = '2018-05-02' + 'T00:00:00Z';
-  let endDate = '2018-05-21' + 'T00:00:00Z';
-  budgetPrice = 200;
+  // let location = 'Seattle';
+  // let startDate = '2018-05-02' + 'T00:00:00Z';
+  // let endDate = '2018-05-21' + 'T00:00:00Z';
+  // budgetPrice = 200;
   // UNCOMMENT THIS FOR HARD CODED PARAMETERS
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
-  //   let location = req.query.location;
-  //   let startDate = req.query.date + 'T00:00:00Z';
-  //   let endDate = req.query.date + 'T00:00:00Z';
-  //   let budgetPrice = req.query.budget;
+  let location = req.query.location;
+  let startDate = req.query.startDate + 'T00:00:00Z';
+  let endDate = req.query.endDate + 'T00:00:00Z';
+  budgetPrice = req.query.budget;
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
+
   // UNCOMMENT THIS FOR OBJECT PARAMETERS
   //   let location = req.body.location;
   //   let startDate = req.body.date + 'T00:00:00Z';
@@ -47,15 +48,15 @@ app.get('/api/v1/tm*', (req, res) => {
   request
   // UNCOMMENT THIS FOR PARAMETER SEARCH
     .get(apiUrl)
-
     .then(results => results.body._embedded.events)
     .then(resultsBody => resultsBody.filter(filterResults))
     .then(events => {
-    //   let arrayOfEvents = [];
-      //   arrayOfEvents.push(events.map(event => event.name));
-    //   arrayOfEvents.push(events.map(event => mapResults(event)));
-      let arrayOfEvents = events.map(event => mapResults(event));
+      let arrayOfEvents = [];
+      // arrayOfEvents.push(events.map(event => event.name));
+      arrayOfEvents.push(events.map(event => mapResults(event)));
+      // let arrayOfEvents = events.map(event => mapResults(event));
       res.send(arrayOfEvents)
+      console.log(apiUrl)
     })
 
     // DANGER might have to handle an empty array
