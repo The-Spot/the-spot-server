@@ -22,8 +22,8 @@ app.get('/api/v1/tm*', (req, res) => {
   console.log('entering TM api');
   // UNCOMMENT THIS FOR HARD CODED PARAMETERS
   let location = 'Seattle';
-  let startDate = '2018-05-02' + 'T00:00:00Z';
-  let endDate = '2018-05-21' + 'T00:00:00Z';
+  let startDate = '2018-05-08' + 'T00:00:00Z';
+  let endDate = '2018-05-09' + 'T00:00:00Z';
   budgetPrice = 200;
   // UNCOMMENT THIS FOR HARD CODED PARAMETERS
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
@@ -64,9 +64,11 @@ app.get('/api/v1/tm*', (req, res) => {
 });
 
 function filterResults (event) {
-  // console.log('min price', budgetPrice);
-  return (event.classifications[0].segment.name !== 'Sports' && event.priceRanges[0].min <= budgetPrice);
-}
+  console.log('event', event.classifications);
+  console.log('price', event.priceRanges);
+  if (event.priceRanges && event.priceRanges.length > 0 && event.classifications && event.classifications.length > 0)   {
+    return (event.classifications[0].segment.name !== 'Sports' && event.priceRanges[0].min <= budgetPrice);
+  }}
 
 function mapResults (event) {
   let eventObject = {
