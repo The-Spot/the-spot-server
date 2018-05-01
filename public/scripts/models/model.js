@@ -59,8 +59,8 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#location').val(''),
     $('#startDate').val(''),
     $('#endDate').val(''),
-    $('.container').hide();
-    $('.result-view').show();
+    $('.container').hide(500);
+
   }
 
 
@@ -70,7 +70,8 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       .hide()
       .slice(0, 3)
       .appendTo(container)
-      .show();
+      .show(500)
+    $('.result-view').show();
   }
 
   $(function() {
