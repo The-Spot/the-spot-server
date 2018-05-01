@@ -39,10 +39,10 @@ app.get('/api/v1/tm*', (req, res) => {
   //   let endDate = req.body.date + 'T00:00:00Z';
   // UNCOMMENT THIS FOR OBJECT PARAMETERS
   // UNCOMMENT THIS FOR PARAMETER SEARCH
-  //   console.log('location', location);
-  //   console.log('startDate', startDate);
-  //   console.log('endDate', endDate);
-  //   console.log('budget', budget);
+  // console.log('location', location);
+  // console.log('startDate', startDate);
+  // console.log('endDate', endDate);
+  // console.log('budget', budget);
   //   let apiUrl = apiURLPrefix + '&' + startDate +'&' + endDate + '&' +'city=' + location;
   // UNCOMMENT THIS FOR PARAMETER SEARCH
   request
