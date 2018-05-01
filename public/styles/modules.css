@@ -49,9 +49,9 @@ form * {
 
 #result-view {
   display: flex;
-  width: 900px;
-  /* flex: auto; */
-  overflow: scroll;
+  width: 90%;
+  flex: auto;
+  overflow: auto;
   justify-content: space-around;
 }
 
