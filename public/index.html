@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="./styles/reset.css">
 
   <script id="result-view-template" type="text/x-handlebars-template">
-    <div>
+
+    <div class="event-result">
       <img src="{{imageUrl}}">
         <ul>
           <li><p><a href={{tmUrl}}>{{eventName}}</a></p></li>
@@ -22,6 +23,7 @@
           <li><p>Venue: {{venue}}</p></li>
         </ul>
     </div>
+    
   </script>
 
 </head>
@@ -51,8 +53,14 @@
         </fieldset>
       </section>
 
-      <section id="result-view" class="result-view container">
 
+      <section class="result-view container">
+
+          <button class="left">&#10094;</button>
+         
+        <div id="result-view"></div>
+
+          <button class="right">&#10095;</button>
       </section>
 
   <footer class="footer">footer</footer>

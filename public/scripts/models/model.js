@@ -50,7 +50,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
         stuff.forEach(element => {
           $('#result-view').append(SearchObj.renderHandle(element))
         })
-        $('#result-view').show();
+        $('.result-view').show();
       })
 
     // let arrEvent = []
@@ -90,9 +90,33 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#startDate').val(''),
     $('#endDate').val(''),
     $('.container').hide();
-    $('.results').show();
+    // $('.results').show();
 
   }
+
+
+
+
+  $(function() {
+
+    var container = $('#result-view');
+    var cycle = function() {
+      container.find('.event-result')
+        .hide()
+        .slice(0, 3)
+        .appendTo(container)
+        .show();
+    }
+
+    $('.right').click(function() {
+      cycle();
+    });
+    // $('.right, .left').click(function()
+    cycle();
+  });
+
+
+
 
   $('#landing-form').on('submit', SearchObj.submit);
 

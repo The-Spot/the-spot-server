@@ -17,12 +17,6 @@
   box-shadow: 0 0 20px 14px white;
 }
 
-#result-view{
-  font-size: 1em;
-}
-#result-view li{
-  list-style-type: none;
-}
 
 .form {
   width: 40%;
@@ -39,3 +33,39 @@ form * {
   margin-top: 5%;
   height: 50px;
 }
+
+
+
+
+.result-view {
+  background-color: white;
+  opacity: .85;
+  margin-top: 0px;
+  font-size: 1em;
+  margin: auto;
+}
+
+#result-view {
+  display: flex;
+  width: 90%;
+  flex: auto;
+  overflow: auto;
+  justify-content: space-around;
+}
+
+.event-result {
+  border: 1px solid black;
+  width: 400px;
+}
+
+#result-view li{
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+
+
