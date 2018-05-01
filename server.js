@@ -28,10 +28,10 @@ app.get('/test', (req, res) => res.send('I am working'));
 app.get('/api/v1/tm', (req, res) => {
   console.log('entering TM api');
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
-    let location = req.query.location;
-    let startDate = req.query.datetime + 'T00:00:00Z';
-    // let endDate = req.query.date + 'T00:00:00Z';
-    let budget = req.query.budget;
+  let location = req.query.location;
+  let startDate = req.query.startDate + 'T00:00:00Z';
+  let endDate = req.query.endDate + 'T00:00:00Z';
+  let budget = req.query.budget;
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
 
   // UNCOMMENT THIS FOR OBJECT PARAMETERS
@@ -40,11 +40,11 @@ app.get('/api/v1/tm', (req, res) => {
   //   let endDate = req.body.date + 'T00:00:00Z';
   // UNCOMMENT THIS FOR OBJECT PARAMETERS
   // UNCOMMENT THIS FOR PARAMETER SEARCH
-    console.log('location', location);
-    console.log('startDate', startDate);
-    // console.log('endDate', endDate);
-    console.log('budget', budget);
-   let apiUrl = apiURLPrefix + '&' + startDate +'&' +'city=' + location;
+  console.log('location', location);
+  console.log('startDate', startDate);
+  console.log('endDate', endDate);
+  console.log('budget', budget);
+  let apiUrl = apiURLPrefix + '&'+'startDateTime='+ startDate +'&' + 'endDateTime='+ endDate +'&' +'city=' + location;
   // UNCOMMENT THIS FOR PARAMETER SEARCH
   request
   // UNCOMMENT THIS FOR PARAMETER SEARCH
@@ -53,7 +53,7 @@ app.get('/api/v1/tm', (req, res) => {
     .then(results => results.body._embedded.events)
     .then(events => {
       let arrayOfEvents = [];
-        arrayOfEvents.push(events.map(event => event.name));
+      // arrayOfEvents.push(events.map(event => event.name));
       arrayOfEvents.push(events.map(event => mapResults(event)));
       // let arrayOfEvents = events.map(event => mapResults(event));
       res.send(arrayOfEvents)

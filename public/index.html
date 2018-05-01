@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,36 +11,25 @@
   <link rel="stylesheet" href="./styles/modules.css">
   <link rel="stylesheet" href="./styles/reset.css">
 
-
-
   <script id="result-view-template" type="text/x-handlebars-template">
     <div>
       <img src="{{imageUrl}}">
         <ul>
           <li><p><a href={{tmUrl}}>{{eventName}}</a></p></li>
-          <li><p>start date: {{startDate}}</p></li>
-          <li><p>{{priceMin}}</p></li>
-          <li><p>{{priceMax}}</p></li>
-          <li><p>{{venue}}</p></li>
+          <li><p>Date: {{startDate}}</p></li>
+          <li><p>Price Max:{{priceMin}}</p></li>
+          <li><p>Price Min: {{priceMax}}</p></li>
+          <li><p>Venue: {{venue}}</p></li>
         </ul>
     </div>
   </script>
-
-
-
-
 
 </head>
 
 <body>
     <video id="video" preload="true" autoplay loop muted>
-        <!-- <source src="./video/concert.mp4"> -->
-        <!-- <source src="./video/city1.mp4"> -->
         <source src="./video/city2.mp4">
-        <!-- <source src="./video/city3.mp4"> -->
-        <!-- <source src="./video/city.mp4"> -->
     </video>
-
 
     <section class="home container">
       <div>
@@ -56,15 +44,15 @@
           <form id="landing-form">
             <input id="budget" type="number" placeholder="Budget" >
             <input id="location" type="text" placeholder="Location" >
-            <input id="date-time" type="date" >
+            <input id="startDate" type="date" >
+            <input id="endDate" type="date" >
             <button class="show-results"type="submit">Submit</button>
           </form>
         </fieldset>
       </section>
 
-
       <section id="result-view" class="result-view container">
-        <!-- <ul id="view-results"></ul> -->
+
       </section>
 
   <footer class="footer">footer</footer>
@@ -76,7 +64,6 @@
     <!-- <script src="./scripts/controller/routes.js"></script> -->
     <script src="./scripts/views/view.js"></script>
     <script src="./scripts/models/model.js"></script>
-    <!-- <script src="test.js" type="text/javascript"></script> -->
 </body>
 
 </html>
