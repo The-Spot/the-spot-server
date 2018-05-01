@@ -27,6 +27,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   // };
   SearchObj.renderHandle = function (renderer) {
     let template = Handlebars.compile($('#result-view-template').text());
+
     console.log(renderer)
     return template(renderer)
   }
@@ -45,8 +46,10 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
         stuff.forEach(element => {
           console.log(element)
           $('#result-view').append(SearchObj.renderHandle(element))
+          cycle();
         })
-        $('.result-view').show();
+
+        // $('.result-view').show();
       })
       // .then(console.log(arrEvent))
 
@@ -73,29 +76,28 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#location').val(''),
     $('#date-time').val('')
     $('.container').hide();
-    // $('.results').show();
+    $('.result-view').show();
+    
 
   }
 
 
-
+  function cycle() {
+    var container = $('#result-view');
+    container.find('.event-result')
+      .hide()
+      .slice(0, 3)
+      .appendTo(container)
+      .show();
+  }
 
   $(function() {
-
-    var container = $('#result-view');
-    var cycle = function() {
-      container.find('.event-result')
-        .hide()
-        .slice(0, 3)
-        .appendTo(container)
-        .show();
-    }
-
     $('.right').click(function() {
       cycle();
     });
-    // $('.right, .left').click(function()
-    cycle();
+    $('.left').click(function() {
+      cycle(-1);
+    });
   });
 
 
