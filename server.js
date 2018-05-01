@@ -7,7 +7,7 @@ const express = require('express');
 const request = require('superagent');
 const app = express();
 const apiURLPrefix = process.env.API_URL_PREFIX;
-let budgetPrice = 100;
+let budgetPrice = 0;
 
 const CLIENT_URL = process.env.CLIENT_URL;
 
@@ -21,16 +21,16 @@ app.get('/test', (req, res) => res.send('I am working'));
 app.get('/api/v1/tm', (req, res) => {
   console.log('entering TM api');
   // UNCOMMENT THIS FOR HARD CODED PARAMETERS
-  let location = 'Seattle';
-  let startDate = '2018-05-02' + 'T00:00:00Z';
-  let endDate = '2018-05-21' + 'T00:00:00Z';
-  budgetPrice = 200;
+  // let location = 'Seattle';
+  // let startDate = '2018-05-02' + 'T00:00:00Z';
+  // let endDate = '2018-05-21' + 'T00:00:00Z';
+  // budgetPrice = 200;
   // UNCOMMENT THIS FOR HARD CODED PARAMETERS
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
-  //   let location = req.query.location;
-  //   let startDate = req.query.date + 'T00:00:00Z';
-  //   let endDate = req.query.date + 'T00:00:00Z';
-  //   let budgetPrice = req.query.budget;
+  let location = req.query.location;
+  let startDate = req.query.startDate + 'T00:00:00Z';
+  let endDate = req.query.endDate + 'T00:00:00Z';
+  budgetPrice = req.query.budget;
   // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
 
   // UNCOMMENT THIS FOR OBJECT PARAMETERS

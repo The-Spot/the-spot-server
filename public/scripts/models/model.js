@@ -15,16 +15,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   var SearchObj = {};
 
   // function SearchObj
-  // *** OLD FUNCTION, DON'T USE:
-  // SearchObj.create = function(key) {
-  //   $.post(`${ENV.apiUrl}/`, {
-  //     budget: key.budget,
-  //     location: key.location,
-  //     datetime: key.datetime
-  //   })
-  //     .then(console.log('searchobj create'))
-  //     .catch(err => console.error(err));
-  // };
+
   SearchObj.renderHandle = function (renderer) {
     let template = Handlebars.compile($('#result-view-template').text());
     console.log(renderer)
@@ -32,11 +23,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   }
 
   SearchObj.create = function(key) {
-
-    // $.get(`${ENV.apiUrl}/viewData`, {
-    //   budget: key.budget,
-    //   location: key.location,
-    //   datetime: key.datetime
 
     $.get(`${ENV.apiUrl}/api/v1/tm`, {
       budget: key.budget,
@@ -47,30 +33,12 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       .then(data => {
         console.log(data)
         let stuff = data
-        stuff.forEach(element => {
+        stuff[0].forEach(element => {
+          console.log(element)
           $('#result-view').append(SearchObj.renderHandle(element))
         })
         $('.result-view').show();
       })
-
-    // let arrEvent = []
-    // $.get(`${ENV.apiUrl}/api/v1/tm`)
-    //   .then(data => {
-    //     let stuff = data
-    //     stuff.forEach(element => {
-    //       console.log(element)
-    //       $('#result-view').append(SearchObj.renderHandle(element))
-    //     })
-    //     $('#result-view').show();
-    //   })
-      // .then(console.log(arrEvent))
-
-      // .then(
-    // arrEvent.forEach(element => {
-    //   console.log(element)
-
-
-      // }))
 
       .catch(err => console.error(err));
   };
@@ -83,19 +51,14 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       startDate : $('#startDate').val(),
       endDate : $('#endDate').val()
     };
-    // console.log('key', key)
     SearchObj.create(key);
     $('#budget').val(''),
     $('#location').val(''),
     $('#startDate').val(''),
     $('#endDate').val(''),
     $('.container').hide();
-    // $('.results').show();
 
   }
-
-
-
 
   $(function() {
 
@@ -114,8 +77,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     // $('.right, .left').click(function()
     cycle();
   });
-
-
 
 
   $('#landing-form').on('submit', SearchObj.submit);
