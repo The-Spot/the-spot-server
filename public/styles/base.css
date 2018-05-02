@@ -34,11 +34,11 @@ footer {
   text-align: center;
 }
 
-footer:hover {
+/* footer:hover {
   height: 100px;
   background-color: rgb(16, 83, 92);
   opacity: .6;
-}
+} */
 
 a {
   color: white;
