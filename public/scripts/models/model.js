@@ -9,12 +9,9 @@ ENV.productionApiUrl = 'https://the-spot-sea.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
-
 (function(module) {
-
   var SearchObj = {};
 
-  // function SearchObj
 
   SearchObj.renderHandle = function (renderer) {
     let template = Handlebars.compile($('#result-view-template').text());
@@ -39,15 +36,12 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
           $('#result-view').append(SearchObj.renderHandle(element))
           cycle();
         })
-
-        // $('.result-view').show();
       })
 
       .catch(err => console.error(err));
   };
 
-  SearchObj.submit = event => {
-    event.preventDefault();
+  SearchObj.submit = function() {
     let key = {
       budget : $('#budget').val(),
       location : $('#location').val(),
@@ -58,33 +52,10 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#budget').val(''),
     $('#location').val(''),
     $('#startDate').val(''),
-    $('#endDate').val(''),
-    $('.container').hide(500);
+    $('#endDate').val('');
+    $('.container').hide();
 
   }
-
-
-  function cycle() {
-    var container = $('#result-view');
-    container.find('.event-result')
-      .hide()
-      .slice(0, 3)
-      .appendTo(container)
-      .show(500)
-    $('.result-view').show();
-  }
-
-  $(function() {
-    $('.right').click(function() {
-      cycle();
-    });
-    $('.left').click(function() {
-      cycle(-1);
-    });
-  });
-
-
-  $('#landing-form').on('submit', SearchObj.submit);
 
   module.SearchObj = SearchObj;
 
