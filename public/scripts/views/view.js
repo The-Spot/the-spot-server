@@ -8,8 +8,8 @@ $(document).ready(function() {
 $('.enter').click('submit', (event) => {
   event.preventDefault();
   $('.container').hide();
-  $('.form').show();
-  $('.results').show()
+  $('.form').fadeIn('slow');
+  // $('.results').show()
 });
 
 
