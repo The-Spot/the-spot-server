@@ -20,13 +20,13 @@ body {
   min-height: 100%;
   z-index: -100;
   background-size: cover;
-  opacity: .2;
-  filter: grayscale(50%);
+  /* opacity: .2; */
+  /* filter: grayscale(50%); */
 }
 
 footer {
   height: 50px;
-  background-color: rgb(16, 83, 92);
+  background-color: rgb(0, 158, 137);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -34,18 +34,8 @@ footer {
   text-align: center;
 }
 
-/* footer:hover {
-  height: 100px;
-  background-color: rgb(16, 83, 92);
-  opacity: .6;
-} */
 
 a {
   color: white;
   text-decoration: none;
 }
-/* 
-a:hover {
-  color: black;
-  font-weight: bold;
-} */
