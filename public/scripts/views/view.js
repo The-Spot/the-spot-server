@@ -12,7 +12,11 @@ $('.enter').click('submit', (event) => {
   // $('.results').show()
 });
 
-
+$('.about-us').on('click', (event) => {
+  event.preventDefault();
+  $('.container').hide();
+  $('.about').fadeIn('slow');
+})
 
 
 // $('.show-results').click('submit', (event) => {
