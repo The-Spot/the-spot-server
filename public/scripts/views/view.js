@@ -8,7 +8,6 @@ function cycle() {
     .slice(0, 3)
     .appendTo(container)
     .show()
-  
 }
 
 $(function() {
