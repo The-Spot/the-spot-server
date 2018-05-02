@@ -13,7 +13,6 @@ function cycle() {
     .slice(0, 3)
     .appendTo(container)
     .show()
-  
 }
 
 $(function() {
@@ -25,12 +24,12 @@ $(function() {
   });
 });
 
-$('.enter').click('submit', (event) => {
-  event.preventDefault();
-  $('.container').hide();
-  $('.form').fadeIn('slow');
-  // $('.results').show()
-});
+// $('.enter').click('submit', (event) => {
+//   event.preventDefault();
+//   $('.container').hide();
+//   $('.form').fadeIn('slow');
+//   // $('.results').show()
+// });
 
 $('.about-us').on('click', (event) => {
   event.preventDefault();
