@@ -6,6 +6,7 @@ page('/search', search);
 page('/enter', enterSite);
 
 
+
 function index() {
   $('.container').hide();
   $('.home').show(500);

@@ -36,6 +36,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
           $('#result-view').append(SearchObj.renderHandle(element))
           cycle();
         })
+
       })
 
       .catch(err => console.error(err));
@@ -54,6 +55,11 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#startDate').val(''),
     $('#endDate').val('');
     $('.container').hide();
+
+    $('.result-view').fadeIn('slow');
+    // $('.next-form').show();
+  }
+
 
   }
 
