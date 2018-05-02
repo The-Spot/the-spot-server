@@ -22,11 +22,14 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   SearchObj.create = function(key) {
 
+    let formArray = [];
+
     $.get(`${ENV.apiUrl}/api/v1/tm`, {
       budget: key.budget,
       location: key.location,
       startDate: key.startDate,
       endDate: key.endDate})
+      .then(formArray.push('key', key))
       .then(console.log(key))
       .then(data => {
         console.log(data)
@@ -38,8 +41,14 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
         })
 
       })
-
       .catch(err => console.error(err));
+
+    localStorage.setItem('key', JSON.stringify(formArray));
+
+    const form = JSON.parse(localStorage.getItem('key'));
+
+    console.log('dataaa?', form)
+
   };
 
   SearchObj.submit = function() {
@@ -58,17 +67,26 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
     $('.result-view').fadeIn('slow');
     // $('.next-form').show();
+
+    
+    // let formArray = [];
+    
+    // localStorage.setItem(key, JSON.stringify(formArray));
+
+    // let data = JSON.parse(localStorage.getItem(key));
+    
+    // console.log('dataaa?', data);
+    
+
+    
   }
+  
 
+  // $('.footer').hide();
 
-
-
-
-  $('.footer').hide();
-
-    $(window).scroll(function(){
-        $('.footer').show();
-      });
+  // $(window).scroll(function(){
+  //   $('.footer').show();
+  // });
 
   module.SearchObj = SearchObj;
 

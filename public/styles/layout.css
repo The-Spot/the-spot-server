@@ -23,8 +23,16 @@ fieldset {
 }
 
 
-@media only screen and (min-width: 640px) {
+@media only screen and (max-width: 640px) {
   #result-view {
-    display: block;
+    flex-direction: column;
+    
   }
+
+  section.result-view {
+    margin: 10% auto 15%;
+  }
+  /* #result-view-template {
+    max-height: 100%;
+  } */
 }

@@ -3,8 +3,11 @@
   font-size: 70%;
 }
 
-.enter {
+#enter {
   color: white;
+}
+
+.enter {
   background-color: black;
   padding: 15px 50px;
   border: 1px solid  rgb(37, 248, 139);
@@ -16,22 +19,14 @@
 
 @keyframes blinker {
   50% {
-    color: black;
-    opacity: 0;
+    opacity: .6;
   }
 }
-
-/* .enter:hover {
-  color: white;
-  transition-duration: 0.4s;
-  
-  
-} */
 
 
 .form {
   background-color: white;
-  opacity: .7;
+  opacity: .8;
   padding: 0;
   border-radius: 10px;
 }
@@ -56,6 +51,9 @@ form * {
 }
 
 
+section.result-view {
+  padding: 0;
+}
 
 .result-view {
   background-color: white;
