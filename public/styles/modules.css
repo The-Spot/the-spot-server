@@ -1,22 +1,32 @@
-.red {
-  color: rgb(27, 127, 131);
+.sub-heading {
+  color: rgb(253, 82, 173);
   font-size: 70%;
 }
 
 .enter {
   color: white;
-  background-color: rgb(0, 41, 20);
+  background-color: black;
   padding: 15px 50px;
-  border: 1px solid  black;
+  border: 1px solid  rgb(37, 248, 139);
   border-radius: 20%;
   margin-bottom: 100px;
+  box-shadow: 0 0 20px 14px rgb(235, 20, 163);
+  animation: blinker 1s linear infinite;
 }
 
-.enter:hover {
-  transition-duration: 0.4s;
-  background-color: black;
-  box-shadow: 0 0 20px 14px white;
+@keyframes blinker {
+  50% {
+    color: black;
+    opacity: 0;
+  }
 }
+
+/* .enter:hover {
+  color: white;
+  transition-duration: 0.4s;
+  
+  
+} */
 
 
 .form {
