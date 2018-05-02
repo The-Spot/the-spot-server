@@ -20,12 +20,12 @@ $(function() {
   });
 });
 
-$('.enter').click('submit', (event) => {
-  event.preventDefault();
-  $('.container').hide();
-  $('.form').fadeIn('slow');
-  // $('.results').show()
-});
+// $('.enter').click('submit', (event) => {
+//   event.preventDefault();
+//   $('.container').hide();
+//   $('.form').fadeIn('slow');
+//   // $('.results').show()
+// });
 
 $('.about-us').on('click', (event) => {
   event.preventDefault();

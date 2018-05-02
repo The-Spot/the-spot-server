@@ -61,8 +61,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   }
 
 
-  }
-
   module.SearchObj = SearchObj;
 
 })(app);
