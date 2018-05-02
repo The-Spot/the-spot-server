@@ -67,26 +67,15 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
     $('.result-view').fadeIn('slow');
     // $('.next-form').show();
-
-    
-    // let formArray = [];
-    
-    // localStorage.setItem(key, JSON.stringify(formArray));
-
-    // let data = JSON.parse(localStorage.getItem(key));
-    
-    // console.log('dataaa?', data);
-    
-
     
   }
   
 
-  // $('.footer').hide();
+  $('.footer').hide();
 
-  // $(window).scroll(function(){
-  //   $('.footer').show();
-  // });
+  $(window).scroll(function(){
+    $('.footer').show();
+  });
 
   module.SearchObj = SearchObj;
 
