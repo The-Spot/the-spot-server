@@ -40,7 +40,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
           cycle();
         })
 
-        // $('.result-view').show();
       })
 
       .catch(err => console.error(err));
@@ -61,6 +60,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#endDate').val(''),
     $('.container').hide();
     $('.result-view').show();
+    // $('.next-form').show();
   }
 
 

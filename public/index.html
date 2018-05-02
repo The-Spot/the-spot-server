@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./styles/base.css">
   <link rel="stylesheet" href="./styles/layout.css">
   <link rel="stylesheet" href="./styles/modules.css">
-  <link rel="stylesheet" href="./styles/reset.css">
+  <!-- <link rel="stylesheet" href="./styles/reset.css"> --> 
 
   <script id="result-view-template" type="text/x-handlebars-template">
 
@@ -18,8 +18,8 @@
         <ul>
           <li><p><a href={{tmUrl}}>{{eventName}}</a></p></li>
           <li><p>Date: {{startDate}}</p></li>
-          <li><p>Price Max:{{priceMin}}</p></li>
-          <li><p>Price Min: {{priceMax}}</p></li>
+          <li><p>Price Max: ${{priceMin}}</p></li>
+          <li><p>Price Min: ${{priceMax}}</p></li>
           <li><p>Venue: {{venue}}</p></li>
         </ul>
     </div>
@@ -35,13 +35,13 @@
 
     <section class="home container">
       <div>
-        <h1><a href="">THE SPOT</a></h1>
-        <p class="red">find your event</p>
+        <h1 class="logo">THE SPOT</h1>
+        <p class="red subHeading">find your event</p>
       </div>
       <button class="enter" type="submit">SEARCH</button>
     </section>
 
-    <section class="form container">
+    <section class="form next-form container">
       <fieldset>
           <form id="landing-form">
             <input id="budget" type="number" placeholder="Budget" >
@@ -63,7 +63,12 @@
           <button class="right">&#10095;</button>
       </section>
 
-  <footer class="footer">footer</footer>
+
+      <section class="about container">
+        <div></div>
+      </section>
+
+  <footer class="footer"><a>About Us</a></footer>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
