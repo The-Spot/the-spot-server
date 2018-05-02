@@ -77,9 +77,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   }
 
-
-
-
   $(function() {
 
     var container = $('#result-view');
@@ -99,10 +96,16 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   });
 
 
-
-
   $('#landing-form').on('submit', SearchObj.submit);
 
   module.SearchObj = SearchObj;
+
+
+
+  $('.footer').hide();
+
+    $(window).scroll(function(){
+        $('.footer').show();
+      });
 
 })(app);
