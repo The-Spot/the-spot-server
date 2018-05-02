@@ -60,7 +60,18 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     // $('.next-form').show();
   }
 
+
+
+
+
+  $('.footer').hide();
+
+    $(window).scroll(function(){
+        $('.footer').show();
+      });
+
   module.SearchObj = SearchObj;
+
 
 
 })(app);
