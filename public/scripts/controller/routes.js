@@ -6,8 +6,6 @@ page('/search', search);
 page('/enter', enterSite);
 page('/about', about);
 
-
-
 function index() {
   $('.container').hide();
   $('.home').fadeIn('slow');
