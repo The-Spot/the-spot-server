@@ -36,6 +36,14 @@ form * {
   height: 50px;
 }
 
+#results-button {
+  display: block;
+  margin: auto;
+  width: 100%;
+  border: none;
+  margin-top: 0px;
+  height: 50px;
+}
 
 
 
