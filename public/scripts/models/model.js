@@ -12,8 +12,10 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 (function(module) {
   var SearchObj = {};
 
+
   SearchObj.renderHandle = function (renderer) {
     let template = Handlebars.compile($('#result-view-template').text());
+
 
     return template(renderer)
   }
@@ -31,12 +33,13 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       .then(data => {
         let stuff = data
         stuff[0].sort(function(a,b){
+          // console.log(data + 'sort?')
           return new Date(a.startDate) - new Date(b.startDate)})
         stuff[0].forEach(element => {
           $('#result-view').append(SearchObj.renderHandle(element))
-          cycle();
+         
         })
-
+        cycle();
       })
       .catch(err => console.error(err));
 
