@@ -1,9 +1,5 @@
 'use strict';
 
-// $(document).ready(function() {
-//   $('.container').hide();
-//   $('.home').show();
-// });
 
 function cycle() {
   var container = $('#result-view');
@@ -25,3 +21,8 @@ $(function() {
 });
 
 
+$('.footer').hide();
+
+$(window).scroll(function(){
+  $('.footer').show();
+});
