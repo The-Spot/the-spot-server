@@ -16,7 +16,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   SearchObj.renderHandle = function (renderer) {
     let template = Handlebars.compile($('#result-view-template').text());
 
-    console.log(renderer)
+
     return template(renderer)
   }
 
@@ -30,9 +30,10 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       startDate: key.startDate,
       endDate: key.endDate})
       .then(formArray.push('key', key))
-      .then(console.log(key))
       .then(data => {
-        console.log(data)
+        data.sort(function(a,b){
+          console.log(data + 'sort?')
+          return new Date(b.startDate) - new Date(a.endDate)})
         let stuff = data
         stuff[0].forEach(element => {
           console.log(element)
@@ -64,19 +65,10 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#startDate').val(''),
     $('#endDate').val('');
     $('.container').hide();
-
     $('.result-view').fadeIn('slow');
-    // $('.next-form').show();
-    
+
   }
   
-
-  $('.footer').hide();
-
-  $(window).scroll(function(){
-    $('.footer').show();
-  });
-
   module.SearchObj = SearchObj;
 
 
