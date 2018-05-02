@@ -1,5 +1,10 @@
 'use strict';
 
+// $(document).ready(function() {
+//   $('.container').hide();
+//   $('.home').show();
+// });
+
 function cycle() {
   var container = $('#result-view');
   $('.result-view').show();

@@ -9,7 +9,7 @@ page('/enter', enterSite);
 
 function index() {
   $('.container').hide();
-  $('.home').show(500);
+  $('.home').show();
 }
 
 function search(){
