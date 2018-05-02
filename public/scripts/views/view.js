@@ -31,8 +31,8 @@ $(function() {
 //   // $('.results').show()
 // });
 
-$('.about-us').on('click', (event) => {
-  event.preventDefault();
-  $('.container').hide();
-  $('.about').fadeIn('slow');
-})
+// $('.about-us').on('click', (event) => {
+//   event.preventDefault();
+//   $('.container').hide();
+//   $('.about').fadeIn('slow');
+// })
