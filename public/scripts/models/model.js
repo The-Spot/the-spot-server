@@ -59,7 +59,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('#startDate').val(''),
     $('#endDate').val(''),
     $('.container').hide();
-    $('.result-view').show();
+    $('.result-view').fadeIn('slow');
     // $('.next-form').show();
   }
 

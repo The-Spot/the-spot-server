@@ -27,7 +27,7 @@ body {
 footer {
   height: 50px;
   background-color: rgb(16, 83, 92);
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -38,11 +38,14 @@ footer:hover {
   height: 100px;
   background-color: rgb(16, 83, 92);
   opacity: .6;
-
 }
 
 a {
+  color: white;
   text-decoration: none;
 }
 
-
+a:hover {
+  color: black;
+  font-weight: bold;
+}
