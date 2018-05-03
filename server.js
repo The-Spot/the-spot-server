@@ -98,5 +98,6 @@ function mapResults (event) {
   return eventObject;
 }
 
-app.get('*', (req, res) => res.redirect(CLIENT_URL));
+// app.get('*', (req, res) => res.redirect(CLIENT_URL));
+app.use((req, res) => res.sendFile('404.html', {root: './public'}));
 app.listen(PORT, () => console.log(`listen on port: ${PORT}`));

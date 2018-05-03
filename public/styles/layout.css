@@ -26,13 +26,13 @@ fieldset {
 @media only screen and (max-width: 640px) {
   #result-view {
     flex-direction: column;
-    
   }
 
   section.result-view {
-    margin: 10% auto 15%;
+    margin: 10% 5% 15%;
+    max-width: 90%;
   }
-  /* #result-view-template {
-    max-height: 100%;
-  } */
+
+  
+
 }
