@@ -36,13 +36,9 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
         }
         let stuff = data
         stuff[0].sort(function(a,b){
-          // console.log(data + 'sort?')
           return new Date(a.startDate) - new Date(b.startDate)})
         stuff[0].forEach(element => {
-          // console.log(element)
-
           $('#result-view').append(SearchObj.renderHandle(element))
-
         })
         cycle();
       })
@@ -67,11 +63,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   }
 
-
-
-
   const form = JSON.parse(localStorage.getItem('key'));
-  console.log('dataaa?', form)
 
   SearchObj.localHis = function() {
     $('#budget').val(form[1].budget)

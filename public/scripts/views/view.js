@@ -3,7 +3,6 @@
 
 function cycle() {
   var container = $('#result-view');
-  // $('.result-view').show();
   container.find('.event-result')
     .hide()
     .slice(0, 3)
