@@ -4,10 +4,13 @@ var app = app || {};
 
 const ENV = {};
 
-ENV.isProduction = window.location.protocol === 'https:';
+ENV.isProduction = window.location.protocol.includes('the-spot-sea');
+console.log('ENV.isProduction', ENV.isProduction);
+
 ENV.productionApiUrl = 'https://the-spot-sea.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
+console.log('apiURL', ENV.apiUrl);
 
 (function(module) {
   var SearchObj = {};
