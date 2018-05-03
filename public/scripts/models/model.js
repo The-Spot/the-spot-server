@@ -16,7 +16,6 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   SearchObj.renderHandle = function (renderer) {
     let template = Handlebars.compile($('#result-view-template').text());
 
-
     return template(renderer)
   }
 
@@ -31,24 +30,20 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       endDate: key.endDate})
       .then(formArray.push('key', key))
       .then(data => {
+        if (data[0].length === 0){
+          $('.container').hide()
+          $('.error').show()
+        }
         let stuff = data
         stuff[0].sort(function(a,b){
-          // console.log(data + 'sort?')
           return new Date(a.startDate) - new Date(b.startDate)})
         stuff[0].forEach(element => {
           $('#result-view').append(SearchObj.renderHandle(element))
-         
         })
         cycle();
       })
       .catch(err => console.error(err));
-
     localStorage.setItem('key', JSON.stringify(formArray));
-
-    const form = JSON.parse(localStorage.getItem('key'));
-
-    console.log('dataaa?', form)
-
   };
 
   SearchObj.submit = function() {
@@ -67,8 +62,16 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     $('.result-view').fadeIn('slow');
 
   }
-  
+
+  const form = JSON.parse(localStorage.getItem('key'));
+
+  SearchObj.localHis = function() {
+    $('#budget').val(form[1].budget)
+    $('#location').val(form[1].location)
+  }
+
   module.SearchObj = SearchObj;
+
 
 
 
