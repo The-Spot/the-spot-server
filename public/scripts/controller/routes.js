@@ -13,12 +13,13 @@ function index() {
 
 function search(){
   app.SearchObj.submit()
-  $('.result view').fadeIn('slow');
+  // $('.result-view').fadeIn('slow');
 }
 
 function enterSite(){
   $('.container').hide();
   $('.form').fadeIn('slow');
+  app.SearchObj.localHis();
 }
 
 function about(){

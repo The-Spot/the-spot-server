@@ -46,10 +46,10 @@ app.get('/api/v1/tm', (req, res) => {
     //   let endDate = req.body.date + 'T00:00:00Z';
     // UNCOMMENT THIS FOR OBJECT PARAMETERS
     // UNCOMMENT THIS FOR PARAMETER SEARCH
-    console.log('location', location);
-    console.log('startDate', startDate);
-    console.log('endDate', endDate);
-    console.log('budget', budgetPrice);
+    // console.log('location', location);
+    // console.log('startDate', startDate);
+    // console.log('endDate', endDate);
+    // console.log('budget', budgetPrice);
     let apiUrl = `${apiURLPrefix}&startDateTime=${startDate}&endDateTime=${endDate}&city=${location}`;
     console.log('apiUrl: ', apiUrl);
     // UNCOMMENT THIS FOR PARAMETER SEARCH
@@ -64,7 +64,7 @@ app.get('/api/v1/tm', (req, res) => {
         arrayOfEvents.push(events.map(event => mapResults(event)));
         // let arrayOfEvents = events.map(event => mapResults(event));
         res.send(arrayOfEvents)
-        console.log(apiUrl)
+        // console.log(apiUrl)
       })
 
     // DANGER might have to handle an empty array
@@ -76,8 +76,8 @@ app.get('/api/v1/tm', (req, res) => {
 });
 
 function filterResults (event) {
-  console.log('event', event.classifications);
-  console.log('price', event.priceRanges);
+  // console.log('event', event.classifications);
+  // console.log('price', event.priceRanges);
   if (event.priceRanges && event.priceRanges.length > 0 && event.classifications && event.classifications.length > 0) {
     return (event.classifications[0].segment.name !== 'Sports' && event.classifications[0].segment.name !== 'Miscellaneous' && event.priceRanges[0].min <= budgetPrice);
   } else {
