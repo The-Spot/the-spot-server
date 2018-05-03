@@ -20,8 +20,16 @@ $(function() {
 });
 
 
+$(function() {$('.clear-form').click(function(){
+  (localStorage.clear(),
+    $('#budget').val(''),
+    $('#location').val('')
+  )}
+)})
+
 $('.footer').hide();
 
 $(window).scroll(function(){
   $('.footer').show();
 });
+

@@ -32,7 +32,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       .then(data => {
         if (data[0].length === 0){
           $('.container').hide()
-          $('.error').show()
+          $('.error').fadeIn('slow')
         }
         let stuff = data
         stuff[0].sort(function(a,b){
@@ -66,9 +66,13 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   const form = JSON.parse(localStorage.getItem('key'));
 
   SearchObj.localHis = function() {
+    if (localStorage.getItem('key') === null) {
+      return
+    }
     $('#budget').val(form[1].budget)
     $('#location').val(form[1].location)
   }
+
 
   module.SearchObj = SearchObj;
 
