@@ -13,7 +13,7 @@ function index() {
 
 function search(){
   app.SearchObj.submit()
-  $('.result view').fadeIn('slow');
+  $('.result-view').fadeIn('slow');
 }
 
 function enterSite(){
