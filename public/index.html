@@ -16,7 +16,10 @@
   <script id="result-view-template" type="text/x-handlebars-template">
 
     <div class="event-result">
-      <img src="{{imageUrl}}">
+      <div id="image-icon">
+        <img src="{{imageUrl}}">
+      </div>
+      <div id="result-text">
         <ul>
           <li><p><a href={{tmUrl}}>{{eventName}}</a></p></li>
           <li><p>Date: {{startDate}}</p></li>
@@ -24,6 +27,7 @@
           <li><p>Price Max: ${{priceMax}}</p></li>
           <li><p>Venue: {{venue}}</p></li>
         </ul>
+      </div>
     </div>
     
   </script>
@@ -77,10 +81,10 @@
     <section class="form next-form container">
       <fieldset>
           <form id="landing-form">
-            <input id="budget" type="number" placeholder="Budget" >
-            <input id="location" type="text" placeholder="Location" >
-            <input id="startDate" type="date" >
-            <input id="endDate" type="date" >
+            <input id="budget" type="number" placeholder="Budget" required>
+            <input id="location" type="text" placeholder="Location" required>
+            <input id="startDate" type="date" required>
+            <input id="endDate" type="date" required>
             <a id="results-button" href="./search"><button class="show-results" type="submit">Submit</button></a>
 
           </form>
@@ -102,7 +106,17 @@
       </section>
 
       <section class="about container">
-        <div>what is this</div>
+        <div>
+          <h3>What is this?</h3>
+
+          <p>The spot is a simple search interface to search for events in your area with your timeline and budget.</p>
+              
+          <p>First, click the pulsating “Search” button</p>
+            
+          <p>Next, input your Budget, location, and start & end dates for your search.</p>
+            
+          <p>Then click “Submit” and wait for the results!</p>
+        </div>
       </section>
       
 
