@@ -16,7 +16,6 @@ console.log('apiURL', ENV.apiUrl);
 (function(module) {
   var SearchObj = {};
 
-
   SearchObj.renderHandle = function (renderer) {
     let template = Handlebars.compile($('#result-view-template').text());
 
