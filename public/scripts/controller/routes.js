@@ -11,6 +11,7 @@ function index() {
   $('.home').fadeIn('slow');
 }
 
+
 function search(){
   app.SearchObj.submit()
 }
@@ -18,6 +19,10 @@ function search(){
 function enterSite(){
   $('.container').hide();
   $('.form').fadeIn('slow');
+  $('#landing-form').on('submit', (e) => {
+    e.preventDefault()
+    page('/search');
+  })
   app.SearchObj.localHis();
 }
 
