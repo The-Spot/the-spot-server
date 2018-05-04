@@ -32,7 +32,7 @@ function about(){
 }
 
 
-$('body').click(function() {
+$('.about').click(function() {
   page('./')
 })
 
