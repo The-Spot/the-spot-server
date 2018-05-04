@@ -4,7 +4,8 @@ var app = app || {};
 
 const ENV = {};
 
-ENV.isProduction = window.location.protocol.includes('the-spot-sea');
+ENV.isProduction = window.location.href.includes('the-spot-sea');
+console.log('window.location.href:  ', window.location.href);
 console.log('ENV.isProduction', ENV.isProduction);
 
 ENV.productionApiUrl = 'https://the-spot-sea.herokuapp.com';
