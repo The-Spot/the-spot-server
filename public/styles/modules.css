@@ -1,5 +1,5 @@
 .sub-heading {
-  color: rgb(253, 82, 173);
+  color: rgb(250, 194, 222);
   font-size: 70%;
 }
 
@@ -71,24 +71,36 @@ section.result-view {
 #result-view {
   display: flex;
   flex: auto;
-  overflow: auto;
+  /* overflow: auto; */
   justify-content: space-around;
 }
 
 .event-result {
   border: 1px solid black;
   width: 100%;
+  /* max-height: 100%; */
 }
 
 #result-view li{
   list-style-type: none;
 }
 
-img {
+ul {
+  padding: 0;
+}
 
+img {
   max-width: 100%;
 }
 
+#image-icon {
+  /* height: 59%; */
+  width: 85%;
+  margin: auto;
+}
 
+#result-text {
+  height: 39%;
+}
 
 

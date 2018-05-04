@@ -1,7 +1,8 @@
 
 h1 {
-  color: rgb(245, 255, 250);
+  color: rgb(0, 63, 31);
   border-bottom: 10px solid  rgb(0, 158, 137);
+  font-size: 300%;
 }
 
 section {
@@ -20,6 +21,10 @@ fieldset {
   
 .about {
   font-size: 16px;
+  opacity: .8;
+  background-color: white;
+  width: 80%;
+  border-radius: 10px;
 }
 
 

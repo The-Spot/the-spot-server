@@ -31,4 +31,9 @@ function about(){
   $('.about').fadeIn('slow');
 }
 
+
+$('body').click(function() {
+  page('./')
+})
+
 page.start();

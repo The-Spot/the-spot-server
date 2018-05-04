@@ -20,6 +20,7 @@ $(function() {
 });
 
 
+
 $(function() {$('.clear-form').click(function(){
   (localStorage.clear(),
     $('#budget').val(''),
@@ -27,9 +28,9 @@ $(function() {$('.clear-form').click(function(){
   )}
 )})
 
-$('.footer').hide();
+// $('.footer').hide();
 
-$(window).scroll(function(){
-  $('.footer').show();
-});
+// $(window).scroll(function(){
+//   $('.footer').show();
+// });
 
