@@ -27,10 +27,3 @@ $(function() {$('.clear-form').click(function(){
     $('#location').val('')
   )}
 )})
-
-// $('.footer').hide();
-
-// $(window).scroll(function(){
-//   $('.footer').show();
-// });
-

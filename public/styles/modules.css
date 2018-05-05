@@ -71,14 +71,12 @@ section.result-view {
 #result-view {
   display: flex;
   flex: auto;
-  /* overflow: auto; */
   justify-content: space-around;
 }
 
 .event-result {
   border: 1px solid black;
   width: 100%;
-  /* max-height: 100%; */
 }
 
 #result-view li{
@@ -95,7 +93,6 @@ img {
 }
 
 #image-icon {
-  /* height: 59%; */
   margin: auto;
 }
 
