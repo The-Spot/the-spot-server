@@ -24,43 +24,24 @@ app.get('/api/v1/tm', (req, res) => {
     req.query.startDate && req.query.startDate.length > 0 &&
     req.query.endDate && req.query.endDate.length > 0 &&
     req.query.budget && req.query.budget.length > 0) {
-    // UNCOMMENT THIS FOR HARD CODED PARAMETERS
 
-    // let location = 'Seattle';
-    // let startDate = '2018-05-08' + 'T00:00:00Z';
-    // let endDate = '2018-05-09' + 'T00:00:00Z';
-    // budgetPrice = 200;
-
-    // UNCOMMENT THIS FOR HARD CODED PARAMETERS
-    // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
     let location = req.query.location;
     let startDate = req.query.startDate + 'T00:00:00Z';
     let endDate = req.query.endDate + 'T00:00:00Z';
     budgetPrice = req.query.budget;
-    // UNCOMMENT THIS FOR EMBEDDED PARAMETERS
 
-    // UNCOMMENT THIS FOR OBJECT PARAMETERS
-    //   let location = req.body.location;
-    //   let startDate = req.body.date + 'T00:00:00Z';
-    //   let endDate = req.body.date + 'T00:00:00Z';
-    // UNCOMMENT THIS FOR OBJECT PARAMETERS
-    // UNCOMMENT THIS FOR PARAMETER SEARCH
     let apiUrl = `${apiURLPrefix}&startDateTime=${startDate}&endDateTime=${endDate}&city=${location}`;
-    // UNCOMMENT THIS FOR PARAMETER SEARCH
+
     request
-    // UNCOMMENT THIS FOR PARAMETER SEARCH
       .get(apiUrl)
       .then(results => results.body._embedded.events)
       .then(resultsBody => resultsBody.filter(filterResults))
       .then(events => {
         let arrayOfEvents = [];
-        // arrayOfEvents.push(events.map(event => event.name));
         arrayOfEvents.push(events.map(event => mapResults(event)));
-        // let arrayOfEvents = events.map(event => mapResults(event));
         res.send(arrayOfEvents)
       })
 
-    // DANGER might have to handle an empty array
 
       .catch(console.error);
   } else {
@@ -89,6 +70,5 @@ function mapResults (event) {
   return eventObject;
 }
 
-// app.get('*', (req, res) => res.redirect(CLIENT_URL));
 app.use((req, res) => res.sendFile('404.html', {root: './public'}));
 app.listen(PORT, () => console.log(`listen on port: ${PORT}`));
