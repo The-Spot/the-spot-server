@@ -20,8 +20,6 @@ body {
   min-height: 100%;
   z-index: -100;
   background-size: cover;
-  /* opacity: .2; */
-  /* filter: grayscale(50%); */
 }
 
 footer, .about-us {

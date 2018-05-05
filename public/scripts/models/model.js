@@ -5,13 +5,10 @@ var app = app || {};
 const ENV = {};
 
 ENV.isProduction = window.location.href.includes('the-spot-sea');
-console.log('window.location.href:  ', window.location.href);
-console.log('ENV.isProduction', ENV.isProduction);
 
 ENV.productionApiUrl = 'https://the-spot-sea.herokuapp.com';
 ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
-console.log('apiURL', ENV.apiUrl);
 
 (function(module) {
   var SearchObj = {};
