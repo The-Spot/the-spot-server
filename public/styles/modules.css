@@ -91,11 +91,11 @@ ul {
 
 img {
   max-width: 100%;
+  width: 85%;
 }
 
 #image-icon {
   /* height: 59%; */
-  width: 85%;
   margin: auto;
 }
 
